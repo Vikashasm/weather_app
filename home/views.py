@@ -14,6 +14,8 @@ def main(request):
     g = GeoIP2()
     data = g.city(ip)
     name=data['city']
+    print('i am from name',name)
+    
     
     url=f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid=997ab8def5358d01472eccc64093dc44"
     raw=requests.get(url).json()
