@@ -13,7 +13,7 @@ def main(request):
         ip = request.META.get('REMOTE_ADDR')
     g = GeoIP2()
     name = g.city(ip)
-    name='hisar'
+    
     url=f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid=997ab8def5358d01472eccc64093dc44"
     raw=requests.get(url).json()
     data={
