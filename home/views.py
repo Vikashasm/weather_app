@@ -6,13 +6,13 @@ from django.contrib.gis.geoip2 import GeoIP2
 
 # Create your views here.
 def main(request):
-    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    # if x_forwarded_for:
-    #     ip = x_forwarded_for.split(',')[0]
-    # else:
-    #     ip = request.META.get('REMOTE_ADDR')
-    # g = GeoIP2()
-    # name = g.city(ip)
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    g = GeoIP2()
+    name = g.city(ip)
     name='hisar'
     url=f"https://api.openweathermap.org/data/2.5/weather?q={name}&appid=997ab8def5358d01472eccc64093dc44"
     raw=requests.get(url).json()
