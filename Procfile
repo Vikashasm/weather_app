@@ -1,1 +1,1 @@
-web: daphne chat.asgi:application --port $PORT --bind 0.0.0.0 -v2
+web: gunicorn weather_app.wsgi --log-file -
